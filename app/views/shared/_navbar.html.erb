@@ -19,7 +19,7 @@
             <a class="dropdown-item" href="/photos">All public photos</a>
             <% if session[:user_id] != nil %>
               <% the_user = User.where({ :id => session[:user_id]}).at(0) %>
-              <a class="dropdown-item" href="/users/<%= the_user.username %>"><%= the_user.username %></a>
+              <a class="dropdown-item" href="/edit_user_profile"><%= the_user.username %></a>
               <a class="dropdown-item" href="/user_sign_out">Sign out</a>
             <% else %>
               <a class="dropdown-item" href="/user_sign_in">Sign in</a>
