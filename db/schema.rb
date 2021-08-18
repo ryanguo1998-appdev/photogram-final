@@ -28,14 +28,6 @@ ActiveRecord::Schema.define(version: 2021_08_18_212303) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "followrequests", force: :cascade do |t|
-    t.integer "recipient_id"
-    t.integer "sender_id"
-    t.string "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer "fan_id"
     t.integer "photo_id"

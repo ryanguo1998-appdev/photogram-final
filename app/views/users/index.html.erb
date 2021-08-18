@@ -1,0 +1,30 @@
+<h1>List of Users</h1>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th> Username </th>
+      <th> Private? </th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @all_users.each do |the_user|%>
+      <tr>
+        <td> <%= the_user.username %> </td>
+         <% if the_user.private == true %>
+          <td> Yes </td>
+        <% else %>
+          <td> No </td>
+        <% end %>
+        <% if session[:user_id] != nil %>
+          <td> Follow button </td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <td> 
+          <a href="users/<%= the_user.username %>"> Show details </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
