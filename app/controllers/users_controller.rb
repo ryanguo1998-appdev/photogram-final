@@ -11,7 +11,9 @@ class UsersController < ApplicationController
     matching_user = User.where({ :username => the_username })
     @the_user = matching_user.at(0)
 
-    matching_followers = @the_user.followers.where({ :status => "accepted"})
+    matching_followers = @the_user.followers
+    accepted_followers = matching_followers.where({ :status => "accepted"})
+    @pending_followers = matching_followers.where({ :status => "pending"})
     @num_followers = matching_followers.size
 
     matching_followings = @the_user.followings.where({ :status => "accepted" })

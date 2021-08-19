@@ -4,7 +4,14 @@
   <dt> Private </dt>
   <dd> <%= @the_user.private %></dd>>
   <dt> Followers </dt>
-  <dd> <%= @num_followers %></dd>>
+  <dd> 
+    <%= @num_followers %>
+    <h4> Pending follow requests <h4>
+    for each
+      bullet of the name
+      Accept button /modify_follow_request
+      Reject button /modify_follow_request
+  </dd>
   <dt> Following </dt>
   <dd> <%= @num_following %></dd>>
 </dl>
