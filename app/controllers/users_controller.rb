@@ -11,12 +11,10 @@ class UsersController < ApplicationController
     matching_user = User.where({ :username => the_username })
     @the_user = matching_user.at(0)
 
-    the_user_id = User.where( :username => the_username ).at(0).id
-    accepted_follows = FollowRequest.where({ :status => "accepted"})
-    matching_followers = accepted_follows.where({ :recipient_id => the_user_id})
+    matching_followers = @the_user.followers.where({ :status => "accepted"})
     @num_followers = matching_followers.size
 
-    matching_followings = accepted_follows.where({ :sender_id => the_user_id})
+    matching_followings = @the_user.followings.where({ :status => "accepted" })
     @num_following = matching_followings.size
 
     logged_in_user = User.where({ :id => session[:user_id]}).at(0)

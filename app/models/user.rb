@@ -16,4 +16,7 @@ class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   has_secure_password
+
+  has_many(:followers, { :class_name => "FollowRequest", :foreign_key => "recipient_id" })
+  has_many(:followings, { :class_name => "FollowRequest", :foreign_key => "sender_id" })
 end
